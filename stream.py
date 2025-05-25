@@ -21,7 +21,7 @@ transform = A.Compose([
     ToTensorV2()
 ])
 
-def process_video(video_path, device, detection_threshold=0.5):
+def process_video(video_path, device, detection_threshold=0.3):
     detector = RFDETRBase(pretrain_weights="models/best_total_rf-detr50.pth", device=device)
     transformer = FireDetectionTransformer(model_filename="models/transformer_model_10.pth", device=device)
     extractor = FeatureExtractor(device=device)
@@ -54,11 +54,20 @@ def process_video(video_path, device, detection_threshold=0.5):
             )
 
             if fire_detected:
-                collecting = True
-                target_bbox = detections.xyxy[0]  # Use first detected bbox
-                buffer = []
-                current_step = 0
-                print(f"Object detected! Starting frame collection from frame {frame_idx}")
+                # Find the detection with highest confidence among fire/smoke detections
+                valid_indices = [i for i, (class_id, confidence) in 
+                                enumerate(zip(detections.class_id, detections.confidence))
+                                if class_id in [0, 1] and confidence >= detection_threshold]
+
+                if valid_indices:  # If we have any valid detections
+                    # Get index of detection with maximum confidence
+                    max_conf_idx = max(valid_indices, key=lambda i: detections.confidence[i])
+
+                    collecting = True
+                    target_bbox = detections.xyxy[max_conf_idx]  # Use bbox with highest confidence
+                    buffer = []
+                    current_step = 0
+                    print(f"Object detected! Starting frame collection from frame {frame_idx}")
 
         else:
             # Frame collection mode
