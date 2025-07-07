@@ -1,6 +1,6 @@
 Telegram: @wake_and_bake
 
-### Dataset for RF-DETR must be in COCO-format:
+# Dataset for RF-DETR must be in COCO-format:
 ```
 dataset/
 │
@@ -21,20 +21,27 @@ dataset/
     └── _annotations.coco.json
 ```
          
-# Images from dataset:
-ссылки на картинки 6-8
+## Images from dataset:
+![Fire](images for README/image6.png)
+![Smoke](images for README/image7.png)
+![Fire and smoke](images for README/image8.png)
 
-### Training results
-ссылки на картинки 1-3
+# Training results
+![Metrics plot](images for README/metrics_plot.png)
 * map95: 0.572
 * map50: 0.855
+On the left is an image with annotations, on the right is the model's detection
+![Example of detection](images for README/image1.png)
+![Example of detection](images for README/image2.png)
+![Example of detection](images for README/image3.png)
 
 The main issue was the model's false detection of objects with red light hues—such as emergency lights, headlights, streetlights, and other similar sources—as fire:
-ссылки на картинки 4-5
+![Example of false detection](images for README/image4.png)
+![Example of false detection](images for README/image5.png)
 
 To address this,  I implemented a transformer-based module that analyzes temporal dynamics across frame sequences. This upgrade significantly improved the model’s ability to distinguish real fire from visual artifacts.
 
-### Custom dataset for transformer:
+# Custom dataset for transformer:
 ```
 dataset/
 │
@@ -55,8 +62,12 @@ dataset/
         └── frame_029.jpg
 ```
 
-# Images from transformer dataset:
-ссылки на картинки 9-13
+## Images from transformer dataset:
+![Fire sequence](images for README/image9.png)
+![Fire sequence](images for README/image10.png)
+![Smoke sequence](images for README/image11.png)
+![Lighting sequence](images for README/image12.png)
+![Random sequence](images for README/image13.png)
 
 # Training transformer results:
 	* Test accuracy: 97,3%; 
@@ -65,5 +76,12 @@ dataset/
 	* Recall: 1; 
 	* F1 score: 0,969.
 
-### Results
+# Results
 ссылки на картинки 14-19
+![Fire detection](images for README/image14.png)
+![Fire detection](images for README/image15.png)
+![Smoke detection](images for README/image16.png)
+![Smoke detection](images for README/image17.png)
+![Lighting sequence](images for README/image18.png)
+![Lighting sequence](images for README/image19.png)
+
