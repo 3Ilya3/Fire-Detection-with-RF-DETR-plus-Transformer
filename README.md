@@ -80,11 +80,11 @@ dataset/
 ![Random sequence](images_for_README/image13.png)
 
 # Training transformer results:
-	* Test accuracy: 97,3%; 
-	* Test loss: 0,036;
-	* Precision: 0,941; 
-	* Recall: 1; 
-	* F1 score: 0,969.
+- Test accuracy: 97,3%; 
+- Test loss: 0,036;
+- Precision: 0,941; 
+- Recall: 1; 
+- F1 score: 0,969.
 
 # Results
 ![Fire detection](images_for_README/image14.png)
