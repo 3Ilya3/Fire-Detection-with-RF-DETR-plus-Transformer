@@ -68,7 +68,7 @@ dataset/
         └── frame_029.jpg
 ```
 
-## Images from transformer dataset:
+## Sequences from transformer dataset:
 ![Fire sequence](images_for_README/image9.png)
 
 ![Fire sequence](images_for_README/image10.png)
