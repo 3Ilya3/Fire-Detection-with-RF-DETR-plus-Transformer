@@ -1,6 +1,6 @@
 Telegram: @wake_and_bake
 
-###Dataset for RF-DETR must be in COCO-format:
+### Dataset for RF-DETR must be in COCO-format:
 ```
 dataset/
 │
@@ -21,10 +21,10 @@ dataset/
     └── _annotations.coco.json
 ```
          
-#Images from dataset:
+# Images from dataset:
 ссылки на картинки 6-8
 
-###Training results
+### Training results
  ссылки на картинки 1-3
 map95: 0.572
 map50: 0.855
@@ -34,7 +34,7 @@ The main issue was the model's false detection of objects with red light hues—
 
 To address this,  I implemented a transformer-based module that analyzes temporal dynamics across frame sequences. This upgrade significantly improved the model’s ability to distinguish real fire from visual artifacts.
 
-###Custom dataset for transformer:
+### Custom dataset for transformer:
 ```
 dataset/
 │
@@ -42,7 +42,7 @@ dataset/
 │   ├── annotations.json
 │   ├── ...
 │   └──  seq_i/
-│		     ├── frame_000.jpg
+│        ├── frame_000.jpg
 │        ├── ...
 │        └──  frame_029.jpg
 │
@@ -50,20 +50,20 @@ dataset/
     ├── annotations.json
     ├── ...
     └── seq_i/
-			  ├── frame_000.jpg
+        ├── frame_000.jpg
         ├── ...
         └──  frame_029.jpg
 ```
 
-#Images from transformer dataset:
+# Images from transformer dataset:
 ссылки на картинки 9-13
 
-#Training transformer results:
-	• Test accuracy: 97,3%; 
-	• Test loss: 0,036;
-	• Precision: 0,941; 
-	• Recall: 1; 
-	• F1 score: 0,969.
+# Training transformer results:
+	- Test accuracy: 97,3%; 
+	- Test loss: 0,036;
+	- Precision: 0,941; 
+	- Recall: 1; 
+	- F1 score: 0,969.
 
-###Results
+### Results
 ссылки на картинки 14-19
