@@ -99,3 +99,6 @@ dataset/
 
 ![Lighting sequence](images_for_README/image19.png)
 
+# Video stream processing pipeline
+![Scheme](images_for_README/scheme.png)
+
